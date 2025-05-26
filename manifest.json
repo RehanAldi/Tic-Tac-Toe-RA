@@ -79,5 +79,11 @@
     "offline_capable": true,
     "periodic_background_sync": true,
     "push_notifications": true
-  }
+   },
+  "display_override": [
+    "browser",
+    "fullscreen",
+    "minimal-ui",
+    "standalone",
+    "window-controls-overlay"
 }
