@@ -6,18 +6,11 @@
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="manifest" href="manifest.json" />
-    <link rel="icon" href="icons/icon-192.png" />
+    <link rel="icon" href="icons-kecil.png" />
     <meta name="theme-color" content="#ff0080" />
   </head>
 
-  <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker
-        .register("service-worker.js")
-        .then((reg) => console.log("Service Worker terdaftar:", reg.scope))
-        .catch((err) => console.log("Service Worker gagal:", err));
-    }
-  </script>
+  
 
   <body>
     <div id="startScreen">
@@ -58,7 +51,15 @@
         </button>
       </div>
     </div>
-
+    <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("service-worker.js")
+        .then((reg) => console.log("Service Worker terdaftar:", reg.scope))
+        .catch((err) => console.log("Service Worker gagal:", err));
+    }
     <script src="script.js"></script>
+   
+  </script>
   </body>
 </html>
