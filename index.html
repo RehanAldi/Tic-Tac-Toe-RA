@@ -6,11 +6,9 @@
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="manifest" href="manifest.json" />
-    <link rel="icon" href="icon-kecil.png" />
+    <link rel="icon" href="icons/icon-192.png" />
     <meta name="theme-color" content="#ff0080" />
   </head>
-
-  
 
   <body>
     <div id="startScreen">
@@ -20,10 +18,10 @@
 
     <div id="playerForm" style="display: none">
       <h2>Masukkan Nama Pemain</h2>
-      <label>Nama X:</label>
+      <label for="playerX">Nama X:</label>
       <input id="playerX" placeholder="Player X" />
       <br />
-      <label>Nama O:</label>
+      <label for="playerO">Nama O:</label>
       <input id="playerO" placeholder="Player O" />
       <br />
       <button onclick="startGame()">Mulai Game</button>
@@ -51,15 +49,18 @@
         </button>
       </div>
     </div>
+
     <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker
-        .register("service-worker.js")
-        .then((reg) => console.log("Service Worker terdaftar:", reg.scope))
-        .catch((err) => console.log("Service Worker gagal:", err));
-    }
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("service-worker.js")
+            .then((reg) => console.log("Service Worker terdaftar:", reg.scope))
+            .catch((err) => console.log("Service Worker gagal:", err));
+        });
+      }
+    </script>
+
     <script src="script.js"></script>
-   
-  </script>
   </body>
 </html>
