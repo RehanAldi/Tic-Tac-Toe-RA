@@ -1,22 +1,83 @@
+
 {
+  "id": "/tic-tac-toe",
   "name": "Tic Tac Toe",
   "short_name": "TicTacToe",
-  "description": "Mainkan Tic Tac Toe bersama teman!",
-  "start_url": "./index.html",
+  "description": "Mainkan game Tic Tac Toe klasik langsung dari browser Anda!",
+  "start_url": "/index.html",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#130a4c",
-  "theme_color": "#ff0080",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
   "orientation": "portrait",
+  "lang": "id",
+  "dir": "ltr",
+  "prefer_related_applications": false,
   "icons": [
     {
-      "src": "icons/icon-192.png",
+      "src": "icon-kecil.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "icons/icon-512.png",
+      "src": "icon-kecil.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon-besar.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-besar.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
-  ]
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot1.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "label": "Tampilan permainan Tic Tac Toe"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Main Cepat",
+      "short_name": "Main",
+      "description": "Langsung mulai permainan baru",
+      "url": "/index.html",
+      "icons": [
+        {
+          "src": "icon-192x192-any.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.example.tictactoe",
+      "id": "com.example.tictactoe"
+    }
+  ],
+  "scope_extensions": [],
+  "iarc_rating_id": "eC1hZ2U6MTI=",
+  "categories": [
+    "games",
+    "puzzle"
+  ],
+  "features": {
+    "offline_capable": true,
+    "periodic_background_sync": true,
+    "push_notifications": true
+  }
 }
