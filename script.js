@@ -20,14 +20,15 @@ function showPlayerForm() {
 }
 
 function startGame() {
-  playerSymbols.X = playerXInput.value || "Player X";
-  playerSymbols.O = playerOInput.value || "Player O";
+  playerSymbols.X = playerXInput.value.trim() || "Player X";
+  playerSymbols.O = playerOInput.value.trim() || "Player O";
   nameX.textContent = playerSymbols.X;
   nameO.textContent = playerSymbols.O;
 
   document.getElementById("playerForm").style.display = "none";
   document.getElementById("gameArea").style.display = "block";
 
+  currentPlayer = "X"; // Reset giliran tiap game baru
   startBoard();
 }
 
@@ -38,7 +39,11 @@ function startBoard() {
   for (let i = 0; i < 9; i++) {
     const cell = document.createElement("button");
     cell.classList.add("cell");
-    cell.addEventListener("click", () => makeMove(i), { once: true });
+    cell.addEventListener(
+      "click",
+      () => makeMove(i),
+      { once: true }
+    );
     board.appendChild(cell);
   }
   updateStatus();
@@ -56,11 +61,9 @@ function makeMove(index) {
     lastWinner = currentPlayer;
     statusText.textContent = `${playerSymbols[currentPlayer]} (${currentPlayer}) menang! 🎉`;
     gameOver = true;
-
-  } else if (boardState.every(cell => cell)) {
+  } else if (boardState.every((cell) => cell)) {
     statusText.textContent = `Permainan Seri 🤝`;
     gameOver = true;
-
   } else {
     currentPlayer = currentPlayer === "X" ? "O" : "X";
     updateStatus();
@@ -69,12 +72,22 @@ function makeMove(index) {
 
 function checkWinner() {
   const winPatterns = [
-    [0,1,2],[3,4,5],[6,7,8],
-    [0,3,6],[1,4,7],[2,5,8],
-    [0,4,8],[2,4,6]
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+
+    [0, 4, 8],
+    [2, 4, 6],
   ];
-  return winPatterns.some(([a, b, c]) => 
-    boardState[a] && boardState[a] === boardState[b] && boardState[a] === boardState[c]
+  return winPatterns.some(
+    ([a, b, c]) =>
+      boardState[a] &&
+      boardState[a] === boardState[b] &&
+      boardState[a] === boardState[c]
   );
 }
 
@@ -106,18 +119,21 @@ function goToNameForm() {
 }
 
 function swapSymbols() {
-  const tempName = playerSymbols.X;
-  playerSymbols.X = playerSymbols.O;
-  playerSymbols.O = tempName;
+  // Tukar nama pemain
+  [playerSymbols.X, playerSymbols.O] = [playerSymbols.O, playerSymbols.X];
 
-  const tempInput = playerXInput.value;
-  playerXInput.value = playerOInput.value;
-  playerOInput.value = tempInput;
+  // Tukar input form
+  [playerXInput.value, playerOInput.value] = [playerOInput.value, playerXInput.value];
 
-  const tempScore = scores.X;
-  scores.X = scores.O;
-  scores.O = tempScore;
-
+  // Tukar skor
+  [scores.X, scores.O] = [scores.O, scores.X];
   updateScore();
+
+  // Update nama di tampilan
+  nameX.textContent = playerSymbols.X;
+  nameO.textContent = playerSymbols.O;
+
+  // Ganti pemain aktif agar sesuai
+  currentPlayer = currentPlayer === "X" ? "O" : "X";
   updateStatus();
 }
