@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="icons/icon-192.png" />
+    <meta name="theme-color" content="#ff0080" />
+  </head>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("service-worker.js")
+        .then((reg) => console.log("Service Worker terdaftar:", reg.scope))
+        .catch((err) => console.log("Service Worker gagal:", err));
+    }
+  </script>
+
+  <body>
+    <div id="startScreen">
+      <h1>Tic Tac Toe</h1>
+      <button onclick="showPlayerForm()">Mulai</button>
+    </div>
+
+    <div id="playerForm" style="display: none">
+      <h2>Masukkan Nama Pemain</h2>
+      <label>Nama X:</label>
+      <input id="playerX" placeholder="Player X" />
+      <br />
+      <label>Nama O:</label>
+      <input id="playerO" placeholder="Player O" />
+      <br />
+      <button onclick="startGame()">Mulai Game</button>
+    </div>
+
+    <div id="gameArea" style="display: none">
+      <div id="scoreboard">
+        <div><strong id="nameX">X</strong>: <span id="scoreX">0</span></div>
+        <div><strong id="nameO">O</strong>: <span id="scoreO">0</span></div>
+      </div>
+
+      <div id="status">Giliran:</div>
+
+      <div id="board"></div>
+
+      <div class="button-group">
+        <button class="modern-button" onclick="resetBoardOnly()">
+          Reset Ronde
+        </button>
+        <button class="modern-button" onclick="goToNameForm()">
+          Ganti Nama Pemain
+        </button>
+        <button class="modern-button" onclick="swapSymbols()">
+          Tukar Simbol
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

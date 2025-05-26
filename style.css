@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(180deg, #ff0080, #130a4c);
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  h1, h2, label, #status, #scoreboard div, #nameX, #nameO {
+    color: white;
+  }
+  
+  input {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+    background: white;
+    color: #080808;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  
+  #board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin: 20px auto;
+  }
+  
+  .cell {
+    background: white;
+    color: #000000;
+    font-size: 36px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    height: 100px;
+    transition: all 0.2s ease;
+  }
+  
+  .cell:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+  }
+  
+  #status {
+    font-size: 20px;
+    margin: 15px;
+  }
+  
+  #scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  .button-group {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .modern-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: none;
+    background: white;
+    color: #000000;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .modern-button:hover {
+    transform: scale(1.05);
+    background: #f0f0f0;
+    color: #182848;
+  }
+  
